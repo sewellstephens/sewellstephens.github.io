@@ -62,8 +62,8 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			var positionX = positionX + 10;
-			var points = points + 1;
+			var positionX = 0;
+			var points = 0;
             
 			
 			/* 
@@ -72,7 +72,7 @@
 			turn it around! 
 			*/
 			function update() {
-				
+				positionX = positionX + 10;
 				moveBoxTo(positionX);
 
 			};
@@ -84,7 +84,7 @@
 			*/
 			function handleBoxClick() {
 				positionX = 0;
-				points = 0;
+				points = points + 1;
 				changeBoxText(points);
 
 
