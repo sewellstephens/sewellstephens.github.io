@@ -42,14 +42,16 @@
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
+			var interval = setInterval(update, 50);
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
+			board.on('click', handleBoardClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
+			function moveBoxTo(newPositionX, newPositionY) {
 				box.css("left", newPositionX);
+				box.css("top", newPositionY);
 			}
 
 			// changes the text displayed on the Box
@@ -63,7 +65,19 @@
 			
 			// TODO 2 - Variable declarations 
 			var positionX = 0;
+			var positionY = 0;
+			var speedY = 10;
 			var points = 0;
+			var speed = 10;
+			var boardHeight = jQuery(window).height();
+			var randNum = Math.random() * 100;
+			var randNum255 = Math.round() * 255;
+			var colorStr = "rgb(183, 71, 252)";
+            box.css('background-color', colorStr);
+			box.css('color', 'white');
+			var misClick = 0;
+			var clickBox = false;
+			
             
 			
 			/* 
@@ -72,8 +86,26 @@
 			turn it around! 
 			*/
 			function update() {
-				positionX = positionX + 10;
-				moveBoxTo(positionX);
+				positionX = positionX + speed;
+                positionY = positionY + speedY;
+
+				moveBoxTo(positionX, positionY);
+
+				if (positionX > boardWidth) {
+					speed = -speed;
+				}
+				else if (positionX < 0) {
+					speed = speed * -1;
+				}
+				if (positionY > boardHeight) {
+					speedY = -speedY;
+				}
+				else if (positionY < 0) {
+					speedY = speedY * -1;
+				}
+
+
+
 
 			};
 
@@ -83,12 +115,40 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				positionX = 0;
+				positionX = randNum;
 				points = points + 1;
 				changeBoxText(points);
 
+				if (speed > 0) {
+				   speed = speed + 3;
+				}
+				else if (speed < 0) {
+					speed = speed - 3;
+				}
+                colorStr = "rgb(" + randNum255 + ", " + randNum255 + ", " + randNum255 + ")";
+				box.css('background-color', colorStr);
+
+				
+
+				console.log('Speed: ' + speed + 'Points: ' + points + 'Position: ' + positionX + ' ' + positionY + 'Misclick: ' + misClick);
+
+				
+
+
 
 			};
+			function endGame() {
+                clearInterval(interval);
+				alert("Game over!!!");
+			};
+			function handleBoardClick() {
+				misClick = misClick + 1;
+                console.log(misClick);
+				if (misClick >= 10) {
+					endGame();
+			}
+
+			}
 		})();
 	</script>
 </body>
