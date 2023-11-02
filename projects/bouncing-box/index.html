@@ -71,7 +71,6 @@
 			var speed = 10;
 			var boardHeight = jQuery(window).height();
 			var randNum = Math.random() * 100;
-			var randNum255 = Math.round() * 255;
 			var colorStr = "rgb(183, 71, 252)";
             box.css('background-color', colorStr);
 			box.css('color', 'white');
@@ -117,6 +116,7 @@
 			function handleBoxClick() {
 				positionX = randNum;
 				points = points + 1;
+				var randNum255 = Math.random() * 255;
 				changeBoxText(points);
 
 				if (speed > 0) {
@@ -125,7 +125,7 @@
 				else if (speed < 0) {
 					speed = speed - 3;
 				}
-                colorStr = "rgb(" + randNum255 + ", " + randNum255 + ", " + randNum255 + ")";
+                colorStr = "rgb(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ")";
 				box.css('background-color', colorStr);
 
 				
