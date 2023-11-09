@@ -76,6 +76,7 @@
 			box.css('color', 'white');
 			var misClick = 0;
 			var clickBox = false;
+			var gameEnd = false;
 			
             
 			
@@ -114,10 +115,12 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
+				if (gameEnd === false) {
 				positionX = randNum;
 				points = points + 1;
 				var randNum255 = Math.random() * 255;
 				changeBoxText(points);
+				console.log("box clicked");
 
 				if (speed > 0) {
 				   speed = speed + 3;
@@ -132,20 +135,36 @@
 
 				console.log('Speed: ' + speed + 'Points: ' + points + 'Position: ' + positionX + ' ' + positionY + 'Misclick: ' + misClick);
 
-				
+			}
 
 
 
 			};
 			function endGame() {
+				box.css("display", "none");  
                 clearInterval(interval);
-				alert("Game over!!!");
+                if (confirm("Game over!!!")) {
+					window.location.reload(); 
+				}
+				gameEnd = true;
+
 			};
 			function handleBoardClick() {
+				// click on the box -> points = 1, misclick = 1
+				// click on the box -> points = 2, misclick = 2
+				// click on the box -> points = 3, misclick = 3
+				// miss				 -> points = 3, misclick = 4
+				// miss				 -> points = 3, misclick = 5
+				// click on the box -> points = 4, misclick = 6
+             
+
 				misClick = misClick + 1;
+
                 console.log(misClick);
-				if (misClick >= 10) {
+				console.log("board clicked");
+				if (misClick - points >= 10) {
 					endGame();
+					
 			}
 
 			}
