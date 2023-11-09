@@ -4,6 +4,8 @@ var background = function (window) {
     window.opspark = window.opspark || {};
     var draw = window.opspark.draw;
     var createjs = window.createjs;
+    var buildings = [];
+    var circles = [];
     
     /*
      * Create a background view for our game application
@@ -29,7 +31,9 @@ var background = function (window) {
         // ANIMATION VARIABLES HERE //////////////////////////////////////
         //////////////////////////////////////////////////////////////////
         // TODO (several):
-      
+         
+        var tree
+        
       
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -49,23 +53,24 @@ var background = function (window) {
         moon.y = 50;
 moon.scaleX = 1.0;
 moon.scaleY = 1.0;
-background.addChild(moon);
+ 
 
 for (var i = 0; i < 100; ++i) {
-var circle = draw.circle(10, "purple", "LightGray", 2);
+var circle = draw.circle(10, "#fff", "LightGray", 2);
 circle.x = canvasWidth * Math.random();
 circle.y = groundY * Math.random();
 background.addChild(circle);
+circles.push(circle);
 }
             
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
-            var buildings = [];
+            
 
             for (var i = 0; i < 5; ++i) {
                 var buildingHeight = canvasHeight * Math.random();
-                var building = draw.rect(75, buildingHeight, "purple", "white", 1);
+                var building = draw.rect(75, buildingHeight, "#c802f5", "white", 1);
                 building.x = 200 * i;
                 building.y = groundY - buildingHeight;
                 background.addChild(building);
@@ -73,6 +78,13 @@ background.addChild(circle);
               }
 
             // TODO 3: Part 1 - Add a tree
+
+            
+            tree = draw.bitmap("img/tree.png");
+tree.x = groundY - 30;
+tree.y = groundY + 20;
+background.addChild(tree);
+background.addChild(moon);
             
             
         } // end of render function - DO NOT DELETE
@@ -88,15 +100,23 @@ background.addChild(circle);
             
             // TODO 3: Part 2 - Move the tree!
             
+            tree.x = tree.x + 1;
+
+if (tree.x < -200) {
+  tree.x = canvasWidth;
+}
             
             // TODO 4: Part 2 - Parallax
 
             for (var i = 0; i < buildings.length; i++) {
                 var eachElement = buildings[i];
-
-
-              
-                // code to do something with each element
+                console.log(eachElement);
+                eachElement.x = eachElement.x + 3;
+              }
+              for (var i = 0; i < circles.length; i++) {
+                var eachElement = c[i];
+                console.log(eachElement);
+                eachElement.x = eachElement.x + 3;
               }
             
 
