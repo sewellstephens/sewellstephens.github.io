@@ -114,7 +114,7 @@ if (tree.x < -200) {
                 eachElement.x = eachElement.x + 3;
               }
               for (var i = 0; i < circles.length; i++) {
-                var eachElement = c[i];
+                var eachElement = circles[i];
                 console.log(eachElement);
                 eachElement.x = eachElement.x + 3;
               }
