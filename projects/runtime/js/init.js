@@ -31,7 +31,7 @@ var init = function (window) {
   var background = opspark.makeBackground(app, ground);
   view.addChild(background);
 
-  var help = draw.textfield(
+  /*var help = draw.textfield(
     "MOVES || up: jump | right: flying jump | down: duck | space: fire | q self destruct!",
     "20px Arial",
     "#ccc",
@@ -39,7 +39,14 @@ var init = function (window) {
   );
   help.x = 10;
   help.y = ground.y + ground.getBounds().height + 10;
-  view.addChild(help);
+  view.addChild(help);*/
+
+  var walk = draw.rect(canvas.width, 40, '#c802f5');
+  walk.x = 0;
+  walk.y = ground.y + ground.getBounds().height + 10;
+  view.addChild(walk);
+
+  
 
   window.opspark.makeSpriteSheet(data).then(function (ss) {
     spritesheet = ss;

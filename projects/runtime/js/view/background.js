@@ -56,7 +56,7 @@ moon.scaleY = 1.0;
  
 
 for (var i = 0; i < 100; ++i) {
-var circle = draw.circle(10, "#fff", "LightGray", 2);
+var circle = draw.circle(2, "#fff", "LightGray", 1);
 circle.x = canvasWidth * Math.random();
 circle.y = groundY * Math.random();
 background.addChild(circle);
@@ -70,9 +70,9 @@ circles.push(circle);
 
             for (var i = 0; i < 5; ++i) {
                 var buildingHeight = canvasHeight * Math.random();
-                var building = draw.rect(75, buildingHeight, "#c802f5", "white", 1);
-                building.x = 200 * i;
-                building.y = groundY - buildingHeight;
+                var building = draw.rect(buildingHeight, 75, "#c802f5", "white", 1);
+                building.y = 200 * i;
+                building.x = ground.x + buildingHeight;
                 background.addChild(building);
                 buildings.push(building);
               }
@@ -81,7 +81,7 @@ circles.push(circle);
 
             
             tree = draw.bitmap("img/tree.png");
-tree.x = groundY - 30;
+tree.x = 1000;
 tree.y = groundY + 20;
 background.addChild(tree);
 background.addChild(moon);
@@ -100,7 +100,7 @@ background.addChild(moon);
             
             // TODO 3: Part 2 - Move the tree!
             
-            tree.x = tree.x + 1;
+            tree.x = tree.x - 1;
 
 if (tree.x < -200) {
   tree.x = canvasWidth;
@@ -111,12 +111,7 @@ if (tree.x < -200) {
             for (var i = 0; i < buildings.length; i++) {
                 var eachElement = buildings[i];
                 console.log(eachElement);
-                eachElement.x = eachElement.x + 3;
-              }
-              for (var i = 0; i < circles.length; i++) {
-                var eachElement = circles[i];
-                console.log(eachElement);
-                eachElement.x = eachElement.x + 3;
+                eachElement.x = eachElement.x - 3;
               }
             
 

@@ -74,8 +74,9 @@
             } else if (activeKeys[KEYCODE_Q]) {
                 player.die();
                 setTimeout(function() {
-                    document.location.reload()
-                    alert("press enter to start over");
+                        document.getElementById('canvas').style.display = 'none';
+                        document.getElementById('overgame').style.display = 'block';
+                    
                 }, 1100);
             } else if (activeKeys[KEYCODE_DOWN]) {
                 player.duckin();
