@@ -59,5 +59,17 @@
         init(window);
       })();
     </script>
+    <script>
+ 
+ setInterval(() => {
+  if (document.getElementById('overgame').style.display === 'block') {
+        document.addEventListener('keyup', function (e) {
+    if (e.keyCode == 13)
+        window.location.reload();
+});
+      }
+ }, 2000);
+      
+    </script>
   </body>
 </html>

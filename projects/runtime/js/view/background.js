@@ -68,14 +68,7 @@ circles.push(circle);
             
             
 
-            for (var i = 0; i < 5; ++i) {
-                var buildingHeight = canvasHeight * Math.random();
-                var building = draw.rect(buildingHeight, 75, "#c802f5", "white", 1);
-                building.y = 200 * i;
-                building.x = ground.x + buildingHeight;
-                background.addChild(building);
-                buildings.push(building);
-              }
+         
 
             // TODO 3: Part 1 - Add a tree
 
@@ -108,11 +101,7 @@ if (tree.x < -200) {
             
             // TODO 4: Part 2 - Parallax
 
-            for (var i = 0; i < buildings.length; i++) {
-                var eachElement = buildings[i];
-                console.log(eachElement);
-                eachElement.x = eachElement.x - 3;
-              }
+            
             
 
         } // end of update function - DO NOT DELETE
@@ -132,6 +121,10 @@ if (tree.x < -200) {
         render();
         return background;
     };
+
+
+    
+
 };
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

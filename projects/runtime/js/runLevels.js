@@ -19,6 +19,63 @@ var runLevels = function (window) {
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
 
+    function createSawBlade(x, y) {
+
+      var hitZoneSize = 25;
+var damageFromObstacle = 10;
+var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+
+sawBladeHitZone.x = x;
+sawBladeHitZone.y = y;
+game.addGameItem(sawBladeHitZone);
+
+var obstacleImage = draw.bitmap("img/sawblade.png");
+sawBladeHitZone.addChild(obstacleImage);
+
+  }
+  createSawBlade(20, 50);
+
+ 
+
+  function createEnemy(x, y) {
+    var enemy = game.createGameItem("enemy", 25);
+    var redSquare = draw.rect(50, 50, "red");
+    // all code from TODO 11 and 12
+redSquare.x = x;
+redSquare.y = y;
+enemy.addChild(redSquare);
+enemy.x = x;
+enemy.y = y;
+game.addGameItem(enemy);
+enemy.onPlayerCollision = function () {
+  game.changeIntegrity(-10)
+};
+enemy.velocityX = -0.5;
+
+
+
+  
+
+enemy.onProjectileCollision = function () {
+  game.increaseScore(100);
+enemy.fadeOut();
+}
+  }
+
+  createEnemy(400, groundY - 10);
+createEnemy(800, groundY - 100);
+createEnemy(1200, groundY - 50);
+
+function createReward(x, y) {
+  var reward = game.createGameItem("reward", 25);
+  reward.x = x;
+  reward.y = y;
+  game.addGameItem(reward);
+  
+}
+
+createReward(23, 50);
+
     
 
     function startLevel() {
