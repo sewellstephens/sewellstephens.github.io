@@ -56,9 +56,7 @@ $(document).ready(function () {
 function addBehavior() {
   var length = 1;
   for (var i = 1; i <= dataShapes.length; i += length) {
-    console.log("hi")
       var currentShape = dataShapes[i];
-      console.log(currentShape);
       if (currentShape.color === "red") {
 
         var newObject = {
@@ -109,8 +107,6 @@ addBehavior();
   function handleGood(color, shape, repeat) {
     setBackgroundWithSimple(color, shape, repeat);
     animationDetails.displayType = 2;
-    console.log(dataShapes);
-    console.log(dataShapes.length);
   }
   
 
