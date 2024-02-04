@@ -54,8 +54,6 @@ $(document).ready(function () {
 
   // TODO 2: add a new property to all data shapes
 function addBehavior() {
-  console.log(dataShapes.length);
-  console.log(dataShapes);
   var length = 1;
   for (var i = 1; i <= dataShapes.length; i += length) {
     console.log("hi")
@@ -97,7 +95,6 @@ function addBehavior() {
 }
 // here, you've executed your function
 addBehavior();
-console.log(dataShapes);
 
 
   // TODO 3-a: add a function that handles the static display type
