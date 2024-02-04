@@ -3,6 +3,8 @@ $(document).ready(function () {
   // SETUP SECTION - DO NOT TOUCH /////////////////
   /////////////////////////////////////////////////
 
+
+
   // These lines register functionality with the different buttons
   $("#cycle-left").on("click", decrementIndex);
   $("#cycle-right").on("click", incrementIndex);
@@ -13,6 +15,8 @@ $(document).ready(function () {
   // These lines handle scheduling animations
   const frameRate = 60;
   setInterval(animate, 1000 / frameRate);
+
+
 
   // These lines prepare an object to store animation details
   let animationDetails = {
@@ -26,9 +30,11 @@ $(document).ready(function () {
     displayType: 0,
   };
 
+
   // This line produces most of the data array and stores it in the variable "dataShapes"
   const dataShapes = generateShapeData();
-  var currentIndex = 0;
+  var currentIndex = 1;
+
 
   // This line sets the initial display
   resetDisplay();
@@ -37,19 +43,86 @@ $(document).ready(function () {
   // ALL OF YOUR CODE SHOULD GO BELOW HERE ////////
   /////////////////////////////////////////////////
 
+  // TODO 0 complete
+
   // TODO 1: create a new shape object and add it to the array
+
+
   
+ var shape
+
 
   // TODO 2: add a new property to all data shapes
-  
+function addBehavior() {
+  console.log(dataShapes.length);
+  console.log(dataShapes);
+  var length = 1;
+  for (var i = 1; i <= dataShapes.length; i += length) {
+    console.log("hi")
+      var currentShape = dataShapes[i];
+      console.log(currentShape);
+      if (currentShape.color === "red") {
+
+        var newObject = {
+          color: "red",
+          shape: currentShape.shape,
+          repeat: currentShape.repeat,
+          goodBehavior: "bounce"
+        }
+        let previous = i - 1;
+        dataShapes.splice(i, length, newObject);
+        
+      }
+      else if (currentShape.color === "blue") {
+        var newObject = {
+          color: "blue",
+          shape: currentShape.shape,
+          repeat: currentShape.repeat,
+          goodBehavior: "blink"
+        }
+        let previous = i - 1;
+        dataShapes.splice(i, length, newObject);
+      }
+      else {
+        var newObject = {
+          color: currentShape.color,
+          shape: currentShape.shape,
+          repeat: currentShape.repeat,
+          goodBehavior: "spin"
+        }
+        let previous = i - 1;
+        dataShapes.splice(i, length, newObject);
+      }
+  }
+}
+// here, you've executed your function
+addBehavior();
+console.log(dataShapes);
+
 
   // TODO 3-a: add a function that handles the static display type
   
+  function handleStatic (data) {
+     setBackgroundWithObject(data);
+     animationDetails.displayType = 1;
+  }
 
   // TODO 4-a: add a function that handles the good display type
+
+  function handleGood(color, shape, repeat) {
+    setBackgroundWithSimple(color, shape, repeat);
+    animationDetails.displayType = 2;
+    console.log(dataShapes);
+    console.log(dataShapes.length);
+  }
   
 
   // TODO 5-a: add a function that handles the bad display type
+
+  function handleBad(data, repeat) {
+    setBackgroundWithMixed(data, repeat);
+    animationDetails.displayType = 3;
+  }
   
 
   /////////////////////////////////////////////////
@@ -58,17 +131,21 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
+    handleStatic(dataShapes[currentIndex]);
     
   }
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    
+    var currentShape = dataShapes[currentIndex];
+    handleGood(currentShape.color, currentShape.shape, currentShape.repeat);
   }
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    
+    var currentShape = dataShapes[currentIndex];
+    var repeat = currentShape.repeat;
+    handleBad(currentShape, repeat);
   }
 
   /////////////////////////////////////////////////
@@ -81,7 +158,7 @@ $(document).ready(function () {
 
   // This function generates objects for 26 of the necessary 27 entries into the dataShapes array that is used for most of this program
   function generateShapeData() {
-    const data = [];
+    const data = [shape];
     const colors = ["red", "green", "blue"];
     const shapes = ["square", "triangle", "circle"];
     const repeats = [1, 2, 3];
