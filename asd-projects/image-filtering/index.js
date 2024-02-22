@@ -40,6 +40,22 @@ function applyAndRender() {
 
 console.log(bgPixel)
 
+function applySmudge() {
+  var length = 1;
+  for (var k = 1; k <= image.length; k += length) {
+  for (i = 0; i < image.length; i++) {
+    for (j = 0; j < image[i].length; j++) {
+     var rgbFirst = image[i][j];
+     var rgbNumbers = rgbStringToArray(rgbString);
+     filterFunction(rgbNumbers);
+     rgbString = rgbArrayToString(rgbNumbers);
+     image[i][j] = rgbString;
+    }
+ }
+}
+  
+}
+
 function applyFilter(filterFunction) {
 
   

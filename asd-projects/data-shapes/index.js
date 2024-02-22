@@ -49,7 +49,11 @@ $(document).ready(function () {
 
 
   
- var shape
+ var shape = {
+  color: "blue",
+  shape: "circle",
+  repeat: 3
+ }
 
 
   // TODO 2: add a new property to all data shapes
