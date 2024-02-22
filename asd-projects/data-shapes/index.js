@@ -55,49 +55,26 @@ $(document).ready(function () {
   repeat: 3
  }
 
+  dataShapes.push(shape);
 
   // TODO 2: add a new property to all data shapes
-function addBehavior() {
-  var length = 1;
-  for (var i = 1; i <= dataShapes.length; i += length) {
-      var currentShape = dataShapes[i];
-      if (currentShape.color === "red") {
 
-        var newObject = {
-          color: "red",
-          shape: currentShape.shape,
-          repeat: currentShape.repeat,
-          goodBehavior: "bounce"
-        }
-        let previous = i - 1;
-        dataShapes.splice(i, length, newObject);
-        
-      }
-      else if (currentShape.color === "blue") {
-        var newObject = {
-          color: "blue",
-          shape: currentShape.shape,
-          repeat: currentShape.repeat,
-          goodBehavior: "blink"
-        }
-        let previous = i - 1;
-        dataShapes.splice(i, length, newObject);
-      }
-      else {
-        var newObject = {
-          color: currentShape.color,
-          shape: currentShape.shape,
-          repeat: currentShape.repeat,
-          goodBehavior: "spin"
-        }
-        let previous = i - 1;
-        dataShapes.splice(i, length, newObject);
-      }
+  for (i = 0; i < dataShapes.length; i++) {
+    var currentShape = dataShapes[i];
+    if (currentShape.color === "red") {
+      currentShape.goodBehavior = "bounce";
+    }
+    else if (currentShape.color === "blue") {
+      currentShape.goodBehavior = "blink";
+    }
+    else {
+      currentShape.goodBehavior = "spin";
+    }
   }
-}
-// here, you've executed your function
-addBehavior();
 
+// here, you've executed your function
+
+console.log(shape);
 
   // TODO 3-a: add a function that handles the static display type
   
@@ -117,6 +94,7 @@ addBehavior();
   // TODO 5-a: add a function that handles the bad display type
 
   function handleBad(data, repeat) {
+    repeat++
     setBackgroundWithMixed(data, repeat);
     animationDetails.displayType = 3;
   }
@@ -155,7 +133,7 @@ addBehavior();
 
   // This function generates objects for 26 of the necessary 27 entries into the dataShapes array that is used for most of this program
   function generateShapeData() {
-    const data = [shape];
+    const data = [];
     const colors = ["red", "green", "blue"];
     const shapes = ["square", "triangle", "circle"];
     const repeats = [1, 2, 3];
