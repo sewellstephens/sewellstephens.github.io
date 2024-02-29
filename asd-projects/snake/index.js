@@ -247,15 +247,15 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
-
   for (var i = 1; i < snake.body.length; i++) {
     if (snake.head.row === snake.body[i].row && snake.head.column === snake.body[i].column) {
       console.log('snake collision');
       return true;
     }
+    else {
+      return false;
+    }
   }
-
-  return false;
 }
 
 function endGame() {
@@ -359,20 +359,27 @@ function repositionSquare(square) {
 /* Returns a (row,column) Object that is not occupied by another game component
  */
 function getRandomAvailablePosition() {
-  var spaceIsAvailable = false;
+  var spaceIsAvailable;
   var randomPosition = {};
-  
+
+  /* Generate random positions until one is found that doesn't overlap with the snake */
   while (!spaceIsAvailable) {
-    randomPosition.column = Math.floor(Math.random() * board.rows);
-    randomPosition.row = Math.floor(Math.random() * board.rows);
+    randomPosition.column = Math.floor(Math.random() * COLUMNS);
+    randomPosition.row = Math.floor(Math.random() * ROWS);
     spaceIsAvailable = true;
-    
-    snake.body.forEach(function(snakeSquare) {
-      if (snakeSquare.row === randomPosition.row && snakeSquare.column === randomPosition.column) {
+
+    /*
+    TODO 13: After generating the random position determine if that position is
+    not occupied by a snakeSquare in the snake's body. If it is then set 
+    spaceIsAvailable to false so that a new position is generated.
+    */
+
+    for (var i = 1; i < snake.body.length; i++) {
+      if (snake.body.row === randomPosition.row && snake.body.column === randomPosition.column) {
         spaceIsAvailable = false;
       }
-    });
-    
+    }
+
   }
 
   return randomPosition;
