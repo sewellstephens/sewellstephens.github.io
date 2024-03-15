@@ -36,7 +36,7 @@ h1 {
     padding: 0 10px;
 }
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #000000;
 }
 
@@ -60,8 +60,8 @@ main {
 }
 
 /* portfolio styles */
-#interests {
-    border: 4px silver ridge;
+#projects {
+    border: 2px silver ridge;
     padding: 8px;
 }
 h2, h3 {
@@ -79,6 +79,9 @@ h2, h3 {
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+#portfolio li:hover {
+    background: #eee;
 }
 #portfolio a {
     text-decoration: none;
