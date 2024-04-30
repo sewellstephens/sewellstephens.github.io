@@ -150,7 +150,7 @@ function runProgram(){
     $("#gameItem2").css("top", WALKER2.TOP);
     $("#gameItem2").css("left", WALKER2.LEFT);
     console.log($("#gameItem").css("background-color"));
-    if (WALKER2.LEFT > WALKER.RIGHT && WALKER2.RIGHT < WALKER.LEFT && WALKER2.TOP > WALKER.BOTTOM && WALKER2.BOTTOM < WALKER.TOP) {
+    if (WALKER.LEFT < WALKER2.RIGHT && WALKER.RIGHT > WALKER2.LEFT && WALKER.TOP < WALKER2.BOTTOM && WALKER.BOTTOM > WALKER2.TOP) {
       if ($("#gameItem").css("background-color") === "blue") {
         $("#gameItem").css("background-color", "red");
         $("#gameItem2").css("background-color", "blue");
