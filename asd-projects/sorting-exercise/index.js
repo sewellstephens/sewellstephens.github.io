@@ -20,9 +20,9 @@ The CSS ids you will work with are:
 
 async function bubbleSort(array) {
    for (i = 0; i <= array.length - 1; i++) {
-     for (j = i + 1; j <= array.length - 1; j++) {
-        if (array[j] < array[i - 1]) {
-            swap(array, i, j);
+     for (j = i + 1; j <= array.length - 1; j++) { // fix
+        if (array[j].value < array[i - 1].value) { // fix
+            swap(array, j, j - 1);
             updateCounter(bubbleCounter);
             await sleep();
         }
