@@ -15,6 +15,9 @@ The CSS ids you will work with are:
 
 // TODO 2: Implement bubbleSort
 
+// going the wrong way
+// 
+
 async function bubbleSort(array) {
    for (i = 0; i <= array.length - 1; i++) {
      for (j = i + 1; j <= array.length - 1; j++) {
@@ -40,6 +43,7 @@ function swap(array, i, j) {
   const temp = array[i];
   array[i] = array[j];
   array[j] = temp;
+  drawSwap(array, j, i);
 }
 
 
