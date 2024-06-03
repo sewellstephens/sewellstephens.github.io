@@ -43,7 +43,7 @@ a {
 /* main container area beneath menu */
 main {
     border-radius: 10px;
-    background: rgb(245, 245, 245);
+    background: white;
     display: flex;
 }
 .sidebar {
@@ -75,13 +75,13 @@ h2, h3 {
     padding-left: 0;
 }
 #portfolio li {
-    background: #fff;
+    background: rgb(245, 245, 245);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 #portfolio li:hover {
-    background: #eee;
+    background: rgb(222, 169, 208);
 }
 #portfolio a {
     text-decoration: none;
