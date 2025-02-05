@@ -91,13 +91,16 @@ _.contains = function (arr, val) {
 */
 
 
-/*
+
 _.each = function (col, func) {
-   if (variable instanceof Array) {
-      for ()
+   if (col instanceof Array) {
+      for (let i = 0; i < col.length; i++) {
+         func(col[i], i, col);
+      }
    }
+
 }
-*/
+
 
 /** _.filter
 * Arguments:
@@ -116,6 +119,18 @@ _.each = function (col, func) {
 */
 
 
+_.filter = function (arr, func) {
+
+   let newArr = [];
+
+   for (let i = 0; i < arr.length; i++) {
+      if (func(arr[i], i, arr)) {
+         newArr.push(arr[i]);
+      }
+   }
+   return newArr;
+}
+
 
 /** _.reject
 * Arguments:
@@ -129,6 +144,20 @@ _.each = function (col, func) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function (arr, func) {
+   let newArr = [];
+
+   for (let i = 0; i < arr.length; i++) {
+      if (func(arr[i], i, arr)) {
+         console.log('true');
+      }
+      else {
+         newArr.push(arr[i]);
+      }
+   }
+   return newArr;
+}
 
 
 
@@ -146,6 +175,16 @@ _.each = function (col, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+
+_.map = function (col, func) {
+   let newArr = [];
+   if (col instanceof Array) {
+      for (let i = 0; i < col.length; i++) {
+         newArr.push(func(col[i], i, col));
+      }
+   }
+   return newArr;
+}
 
 
 //////////////////////////////////////////////////////////////////////
