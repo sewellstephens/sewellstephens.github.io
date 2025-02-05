@@ -21,6 +21,10 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
+_.identity = function (val) {
+    return val;
+}
+
 
 /** _.typeOf
 * Arguments:
@@ -41,6 +45,20 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
+
+
+_.typeOf = function (val) {
+    
+    if (Array.isArray(val)) {
+        return "array";
+    }
+    else if (val === null) {
+        return "null";
+    }
+    else {
+        return typeof val;
+    }
+}
 
 
 /** _.first
@@ -98,6 +116,17 @@ var _ = {};
 */
 
 
+_.indexOf = function (arr, val) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === val) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+
 /** _.contains
 * Arguments:
 *   1) An array
@@ -112,6 +141,17 @@ var _ = {};
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+
+_.contains = function (arr, val) {
+    for (let i = 0; i < arr.length; i++) {
+       if (arr[i] === val) {
+         return true;
+       }
+    }
+    return false;
+ }
+
 
 
 /** _.each
@@ -129,6 +169,16 @@ var _ = {};
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+
+
+_.each = function (col, func) {
+    if (col instanceof Array) {
+       for (let i = 0; i < col.length; i++) {
+          func(col[i], i, col);
+       }
+    }
+ 
+ }
 
 
 /** _.unique
@@ -159,6 +209,20 @@ var _ = {};
 */
 
 
+_.filter = function (arr, func) {
+
+    let newArr = [];
+ 
+    for (let i = 0; i < arr.length; i++) {
+       if (func(arr[i], i, arr)) {
+          newArr.push(arr[i]);
+       }
+    }
+    return newArr;
+ }
+
+
+
 /** _.reject
 * Arguments:
 *   1) An array
@@ -171,6 +235,21 @@ var _ = {};
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+
+_.reject = function (arr, func) {
+    let newArr = [];
+ 
+    for (let i = 0; i < arr.length; i++) {
+       if (func(arr[i], i, arr)) {
+          console.log('true');
+       }
+       else {
+          newArr.push(arr[i]);
+       }
+    }
+    return newArr;
+ }
 
 
 /** _.partition
@@ -208,6 +287,17 @@ var _ = {};
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+
+
+_.map = function (col, func) {
+    let newArr = [];
+    if (col instanceof Array) {
+       for (let i = 0; i < col.length; i++) {
+          newArr.push(func(col[i], i, col));
+       }
+    }
+    return newArr;
+ }
 
 
 /** _.pluck
