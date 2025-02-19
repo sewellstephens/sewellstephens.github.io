@@ -2,13 +2,18 @@
 const http = require('http');
 const port = 4060;
 
+const args = process.argv.slice(2);
+const url = args[0] ? args[0] : "https://sewellstephens.github.io";
+
+
+const contentType = args[1] ? args[1] : "text/html";
 
 http.createServer(async function (req, res) {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    fetch('https://sewellstephens.github.io', {
+    res.writeHead(200, { "Content-Type": contentType });
+    fetch(url, {
         method: 'GET',
         headers: {
-            'Content-Type': 'text/html'
+            'Content-Type': contentType,
         }
     })
     .then(async (res1) => {
