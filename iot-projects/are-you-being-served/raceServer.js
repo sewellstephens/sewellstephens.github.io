@@ -54,11 +54,6 @@ const wrapper = (callback) => {
     
 }).listen(port);
 
-// TODO 8: create a common function to be called by all functions in the array passed to the async function
-function wrapper(callback){
-
-}
-
 // sortTogether takes in an array of racer names and an array of times that the racers finished the race.
 // It returns a new array of names, with the list or racers sorted by the time that they finished.
 function sortTogether(names, times) {
