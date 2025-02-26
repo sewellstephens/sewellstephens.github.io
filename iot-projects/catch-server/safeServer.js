@@ -19,10 +19,14 @@ const server = http.createServer(async (req, res) => {
                         let body = '';
                         req.on('data', (stream) => {
                            console.log(stream);
-                           body += stream.data;
+                           body += stream;
                         });
-                        serverStatus = {};
-                        JSON.parse(body);
+
+                        req.on('end', () => {
+                            serverStatus = {};
+                            serverStatus.status = JSON.parse(body);
+                        })
+
                         res.writeHead(200, { 'content-type': 'text/plain' });
                         res.write('The server has been updated.');
                     }
