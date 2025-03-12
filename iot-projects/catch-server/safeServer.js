@@ -2,6 +2,7 @@ const http = require("http");
 const url = require('url');
 const { serialize } = require("v8");
 const port = 3000;
+let serverStatus = {}
 
 const server = http.createServer(async (req, res) => {
     const parsedUrl = url.parse(req.url, true);
@@ -11,26 +12,31 @@ const server = http.createServer(async (req, res) => {
                 if (req.method === 'GET') {
                     if (pathname === '/') {
                         res.writeHead(200, { 'content-type': 'text/plain' });
-                        res.write(serverStatus);
+                        res.write(serverStatus.status);
                     }
                 }
                 else if (req.method === 'PUT') {
-                    if (pathname === '/') {
+                 
                         let body = '';
                         req.on('data', (stream) => {
                            console.log(stream);
-                           body += stream;
+                           body += stream.toString();
                         });
 
                         req.on('end', () => {
-                            serverStatus = {};
-                            serverStatus.status = JSON.parse(body);
+                            console.log()
+                            serverStatus = JSON.parse(body);
                         })
 
                         res.writeHead(200, { 'content-type': 'text/plain' });
                         res.write('The server has been updated.');
                     }
-                }
+                    else if (req.method === 'DELETE') {
+                        serverStatus = {};
+                        res.writeHead(200, { 'content-type': 'text/plain' });
+                        res.write('delete successful');
+                    }
+                
            }
            catch (err) {
             res.writeHead(500, { 'content-type': 'text/plain' });
@@ -43,4 +49,3 @@ const server = http.createServer(async (req, res) => {
            }
 }).listen(port);
 
-let serverStatus = undefined;
