@@ -58,24 +58,20 @@ main {
 
 .btn {
     transition: 0.3s ease-in-out;
-    padding: 10px 20px;
+    padding: 20px 30px;
     background-color: #9c0bea;
     color: white;
     border: none;
-    box-shadow: 7px 7px 0px -1px rgba(0,0,0,0.75);
     cursor: pointer;
-    text-transform: uppercase;
     text-decoration: none;
     text-align: center;
+    font-size: 18px;
     font-weight: bold;
+    border-radius: 7px;
 }
 
 .btn:hover {
     background-color: #4c0a66;
-}
-
-.btn:focus {
-    box-shadow: 0px 0px 0px -1px rgba(0,0,0,0.75);
 }
 
 .full-width {
