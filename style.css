@@ -8,6 +8,16 @@ a {
     color: black;
 }
 
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
 
 main {
     margin: auto;
@@ -89,6 +99,14 @@ main {
         flex-direction: column;
         gap: 40px;
     }
+
+.div-flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
