@@ -6,7 +6,8 @@ const WebSocket = require("ws");
 const port = 8080;
 
 //TODO 1: Variables and generateTemperature function
-
+let temperature = 72;
+let nextChange = 0;
 
 // Configure our HTTP server.
 const server = http.createServer(function (req, res) {
@@ -21,6 +22,29 @@ const server = http.createServer(function (req, res) {
 
   //TODO 2: Regular Polling Server
 
+  const generateTemperature = () => {
+    let changeDifference = Math.random() - 0.5;
+    nextChange += changeDifference;
+    temperature += nextChange;
+    if (temperature < 0) {
+      temperature = 0;
+      nextChange = 0;
+    }
+    else if (temperature > 100) {
+      temperature = 100;
+      nextChange = 0;
+    }
+
+    console.log(temperature);
+
+  }
+
+  setInterval(generateTemperature, 2000);
+
+  if (req.url === '/api') {
+    res.writeHead(200, {'content-type': 'application/json' });
+    res.end(JSON.stringify({ value: temperature }));
+  }
 
 });
 
