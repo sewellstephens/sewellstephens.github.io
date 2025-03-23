@@ -84,6 +84,26 @@ main {
     background-color: #4c0a66;
 }
 
+.btn-secondary {
+    background-color: #f1f0f0;
+    color: #000000;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 7px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-secondary:hover {
+    background-color: #cec8c8;
+}
+
 .full-width {
     width: 100%;
 }
@@ -106,6 +126,12 @@ main {
     align-items: center;
     flex-direction: row;
     gap: 10px;
+}
+
+.icon-bigger {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
 }
 
 /* Extra small devices (phones, 600px and down) */
