@@ -112,9 +112,17 @@ $(document).ready(function () {
 
     // TODO 5: Regular JSON Polling
 
-    $.getJSON("http://localhost:8080/api", function (result) {
+    const doJSONPull = () => {
+      $.getJSON("http://localhost:8080/api", function (result) {
+      addDataPoint(result, wsData, wsChart);
+      updateRecords(result.value);
   // Callback code will go here in the next steps
 });
+    }
+
+    setInterval(() => {
+      doJSONPull();
+    }, 5000);
 
     // TODO 6: AJAX Polling
 
