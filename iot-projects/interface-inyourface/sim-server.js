@@ -2,7 +2,7 @@
 
 // Load the http module to create an http server.
 const http = require("http");
-const WebSocket = require("ws");
+const { WebSocketServer } = require("ws");
 const port = 8080;
 
 //TODO 1: Variables and generateTemperature function
@@ -46,9 +46,27 @@ const server = http.createServer(function (req, res) {
     res.end(JSON.stringify({ value: temperature }));
   }
 
+
+
 });
 
 //TODO 7: WebSocket Server
+
+const wss = new WebSocketServer({
+  port: 5070
+});
+
+wss.on('connection', (ws) => {
+
+  
+
+  setInterval(() => {
+    ws.send(JSON.stringify({ value: temperature }));
+  }, 1000)
+
+
+ 
+})
 
 
 /* DO NOT EDIT THIS CODE */
