@@ -39,7 +39,6 @@ const server = http.createServer(async (req, res) => {
                 
            }
            catch (err) {
-            res.writeHead(500, { 'content-type': 'text/plain' });
                console.error(err);
                res.write('The server has no data');
            }
