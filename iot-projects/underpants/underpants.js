@@ -79,6 +79,18 @@ _.typeOf = function (val) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function (arr, num) {
+   if (_.typeOf(arr) !== "array" || num < 0) {
+      return [];
+   } 
+   else if (_.typeOf(num) !== "number" || !num) {
+      return arr[0];
+   }
+   else {
+      const newArr = arr.slice(0, num);
+      return newArr;
+   }
+}
 
 /** _.last
 * Arguments:
@@ -98,6 +110,17 @@ _.typeOf = function (val) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function (arr, num) {
+   if (_.typeOf(arr) !== "array" || num < 0) {
+      return [];
+   }
+   else if (_.typeOf(num) !== "number") {
+      return arr[arr.length - 1];
+   }
+   else {
+      return arr.slice(-num);
+   }
+}
 
 /** _.indexOf
 * Arguments:
@@ -177,7 +200,11 @@ _.each = function (col, func) {
           func(col[i], i, col);
        }
     }
- 
+    else if (typeof col === "object") {
+      for (const key in col) {
+        func(col[key], key, col);
+      }
+    }
  }
 
 
@@ -191,6 +218,15 @@ _.each = function (col, func) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function (arr) {
+   let newArr = [];
+   for (let i = 0; i < arr.length; i++) {
+     if (!newArr.includes(arr[i])) {
+        newArr.push(arr[i]);
+     }
+   }
+   return newArr;
+}
 
 /** _.filter
 * Arguments:
@@ -296,6 +332,11 @@ _.map = function (col, func) {
           newArr.push(func(col[i], i, col));
        }
     }
+    else if (typeof col === "object") {
+      for (const key in col) {
+        newArr.push(func(col[key], key, col));
+      }
+    }
     return newArr;
  }
 
@@ -374,6 +415,7 @@ _.map = function (col, func) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
 
 
 /** _.extend
