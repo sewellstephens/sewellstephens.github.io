@@ -10,5 +10,4 @@ http.createServer(async (req, res) => {
         "Content-Type": "application/json"
     })
     res.write("Bet you didn't know, ")
-    res.end("Sewell is awesome!")
 }).listen(port)
