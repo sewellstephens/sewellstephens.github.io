@@ -2,6 +2,8 @@ const httpServer = require('./servers/http'),
 	resources = require('./resources/model');
 
 const pirPlugin = require("./plugins/internal/pirPlugin");
+const dhtPlugin = require("./plugins/internal/dhtPlugin")
+
 
 pirPlugin.start({});
 
@@ -11,5 +13,6 @@ httpServer.listen(resources.pi.port, function () {
 
 process.on('SIGINT', function() {
 	pirPlugin.stop();
+	dhtPlugin.stop();
 	process.exit();
 });

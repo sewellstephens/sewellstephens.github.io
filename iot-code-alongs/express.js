@@ -31,10 +31,10 @@ const data = {
     'name': 'do',
     'age': 'you',
     'type': 'want',
-    'secret1': process.env.SECRET
+    'secret': process.env.SECRET
 }
 
-let transform = {"<>": "p", text: "${name} ${age} ${type} ${secret1}"};
+let transform = {"<>": "p", text: "${name} ${age} ${type} ${secret}"};
 let html = json2html.render(data, transform);
 
 /*
