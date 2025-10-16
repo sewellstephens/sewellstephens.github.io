@@ -353,6 +353,7 @@ _.map = function (col, func) {
 */
 
 
+
 /** _.every
 * Arguments:
 *   1) A collection
