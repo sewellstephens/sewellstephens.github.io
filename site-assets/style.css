@@ -118,3 +118,8 @@ a {
 .newsletter-signup form button:hover {
     background-color: #400070;
 }
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
