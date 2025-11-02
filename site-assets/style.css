@@ -122,4 +122,21 @@ a {
 .social-links {
     display: flex;
     gap: 10px;
+    margin-top: 20px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+}
+
+.backstory-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
 }
