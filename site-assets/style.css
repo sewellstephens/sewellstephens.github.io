@@ -140,3 +140,40 @@ a {
     justify-content: start;
     gap: 20px;
 }
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.projects-container h3 {
+    font-size: 1.25rem;
+    color: black;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.projects-container ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.project-date {
+    font-size: 0.875rem;
+    opacity: 0.5;
+    margin-left: 10px;
+}
+
+.projects-container ul li {
+    font-size: 1rem;
+    color: black;
+    margin-top: 10px;
+}

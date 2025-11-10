@@ -214,20 +214,20 @@ function handleAppleCollision() {
   //var column = 0;
 
   if (snake.tail.direction === "left") {
-     var row = snake.tail.row - 1;
-     var column = snake.tail.column;
+     var row = snake.tail.row;
+     var column = snake.tail.column + 1;
   }
   else if (snake.tail.direction === "right") {
-    var row = snake.tail.row + 1;
-    var column = snake.tail.column;
+    var row = snake.tail.row;
+    var column = snake.tail.column - 1;
  }
  else if (snake.tail.direction === "up") {
-  var column = snake.tail.column + 1;
-  var row = snake.tail.row;
+  var row = snake.tail.row + 1;
+  var column = snake.tail.column;
 }
 else if (snake.tail.direction === "down") {
-  var column = snake.tail.column - 1;
-  var row = snake.tail.row;
+  var row = snake.tail.row - 1;
+  var column = snake.tail.column;
 }
 
   // code to determine the row and column of the snakeSquare to add to the snake
@@ -249,10 +249,8 @@ function hasCollidedWithSnake() {
       console.log('snake collision');
       return true;
     }
-    else {
-      return false;
-    }
   }
+  return false;
 }
 
 function endGame() {
@@ -371,9 +369,10 @@ function getRandomAvailablePosition() {
     spaceIsAvailable to false so that a new position is generated.
     */
 
-    for (var i = 1; i < snake.body.length; i++) {
-      if (snake.body.row === randomPosition.row && snake.body.column === randomPosition.column) {
+    for (var i = 0; i < snake.body.length; i++) {
+      if (snake.body[i].row === randomPosition.row && snake.body[i].column === randomPosition.column) {
         spaceIsAvailable = false;
+        break;
       }
     }
 
