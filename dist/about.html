@@ -1,0 +1,78 @@
+<head>
+    <link rel="stylesheet" href="/site-assets/style.css">
+    <title>Home</title>
+    <link rel="icon" href="/site-assets/favicon.png" />
+    <link rel="apple-touch-icon" href="/site-assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function handleSubmit(e) {
+            const email = document.getElementById('email').value;
+            console.log(email);
+            fetch('https://automations.anchorclick.com/webhook/5c904880-729e-439d-8f63-ee54b252b604', {
+                method: 'POST',
+                body: JSON.stringify({ email: email }),
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json();
+                }
+                else {
+                    throw new Error('Error subscribing. Please try again.');
+                }
+            })
+            .then(data => {
+                if (data) {
+                    alert('Please check your email for a confirmation link.');
+                }
+                else {
+                    alert('Error subscribing. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert(error.message);
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <main class="max-width">
+        <section class="profile-container">
+            <img src="/site-assets/pic.webp" alt="Sewell Stephens" class="profile-pic">
+            <h2>Hi, I'm Sewell Stephens</h2>
+            <p>I'm a software dev and business owner with a passion for building products that help people live better lives.</p>
+            <p>I'm the founder of <a href="https://anchorclick.com">Anchorclick</a>. </p>
+        </section>
+
+        <section class="nav-container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        </section>
+
+
+        <section class="social-links" style="margin-bottom: 20px;">
+            <a href="https://x.com/sewell_stephens"><img src="/site-assets/icons/x.svg" width="20" height="20" alt="X" class="social-icon"></a>
+            <a href="https://www.linkedin.com/in/sewellstephens104/"><img src="/site-assets/icons/linkedin.svg" width="20" height="20" alt="LinkedIn" class="social-icon"></a>
+            <a href="https://github.com/SewellStephens"><img src="/site-assets/icons/github.svg" width="20" height="20" alt="GitHub" class="social-icon"></a>
+        </section>
+
+        
+<section class="backstory-container">
+            <h3>My Backstory</h3>
+            <p>Hi, my name is Sewell Stephens. I'm a software dev and business owner with experience in building products and businesses. It all started when I was a kid. I always had the dream to own my own business and build products that help people live better lives.</p>
+            <p>When I was 12 years old, I first learned how to code in HTML. But before any of that, I had many other business ideas most of which were not online businesses. I one day decided why not start an online business and not have to worry about the physical aspects of running a business, primarly expensive ones like a storefront or restaurant.</p>
+            <p>I am currently 20 years old and have been creating online sites and businesses for the past 8 years or so. I have had many ups and downs but I have learned a lot and I am still learning. I am currently working on Anchorclick, a done for you automation agency. Unlike other similar agencies, this one will use our in house AutoAnchorJS library to help with desktop automation tasks where APIs are not available or not feasible.</p>
+</section>
+
+        <footer style="margin-top: 30px; margin-bottom: 10px;">
+            <p style="font-size: 12px;">Copyright &copy; 2025 Sewell Stephens</p>
+        </footer>
+    </main>
+
+</body>
