@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="/site-assets/style.css">
-    <title>Home</title>
+    <title>{{ title }}</title>
     <link rel="icon" href="/site-assets/favicon.png" />
     <link rel="apple-touch-icon" href="/site-assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,8 +50,8 @@
         <section class="nav-container">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/blog.html">Blog</a></li>
             </ul>
         </section>
 
@@ -62,20 +62,7 @@
             <a href="https://github.com/SewellStephens"><img src="/site-assets/icons/github.svg" width="20" height="20" alt="GitHub" class="social-icon"></a>
         </section>
 
-        <h3>Blog</h3><ul class="blog-list">
-        <li class="blog-item">
-          <a href="/blog/axios-vs-javascript-fetch.html">Axios vs Javascript fetch</a>
-          <span class="blog-date">Sun Apr 02 2023</span>
-        </li>
-        <li class="blog-item">
-          <a href="/blog/why-social-sign-in-is-more-secure.html">Why social sign in is more secure</a>
-          <span class="blog-date">Mon Jan 18 2021</span>
-        </li></ul>
-      <div class="pagination">
-        
-        
-      </div>
-    
+        {{ content | safe }}
 
         <footer style="margin-top: 30px; margin-bottom: 10px;">
             <p style="font-size: 12px;">Copyright &copy; 2025 Sewell Stephens</p>

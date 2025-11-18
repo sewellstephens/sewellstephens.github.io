@@ -221,21 +221,6 @@ a {
     margin-top: 20px;
 }
 
-.experience-container ul {
-    list-style-type: none;
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.experience-container li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .blog-list {
     list-style: none;
     padding: 0;

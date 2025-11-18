@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="/site-assets/style.css">
-    <title>Home</title>
+    <title>{{ title }}</title>
     <link rel="icon" href="/site-assets/favicon.png" />
     <link rel="apple-touch-icon" href="/site-assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,19 +43,7 @@
         <a class="margin-bottom: 20px;" href="/">Back to main site</a>
 
         <div class="remove-default-style">
-        
-        <article class="blog-post">
-          <p class="post-date">Mon Jan 18 2021</p>
-          <p><img src="/site-assets/blog/screenshot-1.png" alt="image"></p>
-<p>If you&#39;ve seen those Sign In With Google/Github buttons, you should be using them when possible. here&#39;s why.</p>
-<p>These signing buttons get confused with SSO (Single Sign-On) technology. Single Sign-On is not going to be discussed in this article. For information on that, look elsewhere. </p>
-<p>The reason social sign-on is more secure is that you are using one password for everything. Remember the more websites that you enter passwords into the more of a chance you are of being hacked. Not only that the website will only get your email if using the social sign-on option. The password you enter in Google stays in Google even when logging in with third parties. Although if the website prompts for extra permissions like access to Google Drive, then that&#39;s when it gets less secure. In that case, the social sign-in popup will show you a screen looking something like this:</p>
-<p><img src="/site-assets/blog/screenshot-2.png" alt="image"></p>
-<p>If it doesn&#39;t give a second step like this, you are only giving the site your email, name, and profile photo.</p>
-<p>On the Rototer signup and login page (Found here), we offer Google social sign-in option. We recommend using that instead of entering a password if you don&#39;t want us to have access to your password. By the way </p>
-
-        </article>
-      
+        {{ content | safe }}
         </div>
 
         <footer style="margin-top: 30px; margin-bottom: 10px;">

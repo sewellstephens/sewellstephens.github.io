@@ -11,15 +11,14 @@ const {
     remove
   } = fsExtra;
 
-const SRC = ".";
-const DIST = "./dist";
+const SRC = "./src";
+const DIST = ".";
 const POSTS_PER_PAGE = 5;
 
 // configure nunjucks to read from src/
 nunjucks.configure(SRC, { autoescape: false });
 
 async function build() {
-  await remove(DIST);
   await ensureDir(`${DIST}/blog`);
 
   // ----- Load and parse blog posts -----
@@ -91,8 +90,12 @@ async function build() {
       content: `<h3>Blog</h3>${list}${pagination}`
     });
 
-    const filename = pageNum === 1 ? "index.html" : `page-${pageNum}.html`;
-    await outputFile(`${DIST}/blog/${filename}`, rendered);
+    if (pageNum > 1) {
+        const pageDir = `./blog/page-${pageNum}`;
+        await ensureDir(pageDir);
+        await outputFile(`${pageDir}/index.html`, rendered);
+    }
+      
   }
 
   // ----- Render normal pages (.njk) -----
