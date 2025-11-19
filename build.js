@@ -119,6 +119,11 @@ if (content.includes(`id="blog-list"`)) {
   );
 }
 
+// make sure links don't include .html
+if (content.includes(`.html`)) {
+  content = content.replace(`.html`, ``);
+}
+
 // Use custom title OR fallback to filename
 const title = front.title || file.replace(".njk", "");
 
