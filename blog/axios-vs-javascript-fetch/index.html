@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="/site-assets/style.css">
-    <title>{{ title }}</title>
+    <title>Axios vs Javascript fetch</title>
     <link rel="icon" href="/site-assets/favicon.png" />
     <link rel="apple-touch-icon" href="/site-assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,21 +37,62 @@
             });
         }
     </script>
-    {% if isDev %}
+    
     <script>
   const socket = new WebSocket("ws://localhost:35729");
   socket.onmessage = (event) => {
     if (event.data === "reload") location.reload();
   };
 </script>
-{% endif %}
+
 </head>
 <body>
     <main class="max-width">
         <a class="margin-bottom: 20px;" href="/">Back to main site</a>
 
         <div class="remove-default-style">
-        {{ content | safe }}
+        
+        <article class="blog-post">
+          <p class="post-date">Sun Apr 02 2023</p>
+          <p>If you&#39;ve ever dealt with APIs, you&#39;ve probably heard of several ways to make API calls. Today we&#39;re focusing primarily on Fetch and Axios.</p>
+<p>First thing to note is that Axios is not like Fetch.</p>
+<h3>Lets look at fetch first.</h3>
+<p>Fetch can call APIs in the frontend and backend depending on cors restrictions without an NPM package unlike Axios. Fetch tipically requires more configuration than Axios, although it isn&#39;t too big of a difference. For those who don&#39;t want to fool around with NPM to make an API call, I would say fetch is the way to go. A fetch call will look something like this.</p>
+<pre><code class="language-javascript">fetch(&#39;https://example.com&#39;, {
+  method: &#39;POST&#39;,
+  body: JSON.stringify(subdata),
+})
+  .then((response) =&gt; response.json())
+  .then((subdata) =&gt; {
+    console.log(&#39;Success:&#39;);
+  })
+  .catch((error) =&gt; {
+    console.error(&#39;Error:&#39;, error);
+  });
+</code></pre>
+<p>Axios on the other hand requires an NPM package but requires less code upfront. Axios also is really easy to use. Not that fetch isnt, but I&#39;ve seen Axios requests that are only two lines of code literally. Axios calls are formatted completely different, meaning that you will need to understand differently. Heres an Axios call for you.</p>
+<pre><code class="language-javascript">const options = {
+  url: &quot;https://example.com&quot;,
+  method: &quot;POST&quot;,
+  headers: {
+    &quot;Content-Type&quot;: &quot;application/json&quot;
+  },
+  data: {
+    &quot;id&quot;: &quot;example&quot;,
+    &quot;title&quot;: &quot;Example&quot;,
+    &quot;pubkey&quot;: &quot;random&quot;
+  }
+};
+
+axios(options)
+  .then(response =&gt; {
+    console.log(response.status);
+  });
+</code></pre>
+<p>Anyway, thats all</p>
+
+        </article>
+      
         </div>
 
         <footer style="margin-top: 30px; margin-bottom: 10px;">

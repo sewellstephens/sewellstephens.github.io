@@ -37,6 +37,15 @@
             });
         }
     </script>
+    {% if isDev %}
+    <script>
+  const socket = new WebSocket("ws://localhost:35729");
+  socket.onmessage = (event) => {
+    if (event.data === "reload") location.reload();
+  };
+</script>
+{% endif %}
+
 </head>
 <body>
     <main class="max-width">
@@ -50,8 +59,8 @@
         <section class="nav-container">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
             </ul>
         </section>
 
@@ -64,7 +73,7 @@
 
         {{ content | safe }}
 
-        <footer style="margin-top: 30px; margin-bottom: 10px;">
+        <footer style="margin-top: 50px; margin-bottom: 10px;">
             <p style="font-size: 12px;">Copyright &copy; 2025 Sewell Stephens</p>
         </footer>
     </main>
