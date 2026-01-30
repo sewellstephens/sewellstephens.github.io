@@ -1,51 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <link rel="stylesheet" href="/site-assets/style.css">
-    <title>Blog</title>
+    <title>Blog - Sewell Stephens</title>
     <link rel="icon" href="/site-assets/favicon.png" />
     <link rel="apple-touch-icon" href="/site-assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <!-- Responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        function handleSubmit(e) {
-            const email = document.getElementById('email').value;
-            console.log(email);
-            fetch('https://automations.anchorclick.com/webhook/5c904880-729e-439d-8f63-ee54b252b604', {
-                method: 'POST',
-                body: JSON.stringify({ email: email }),
-            })
-            .then(response => {
-                if (response.status === 200) {
-                    return response.json();
-                }
-                else {
-                    throw new Error('Error subscribing. Please try again.');
-                }
-            })
-            .then(data => {
-                if (data) {
-                    alert('Please check your email for a confirmation link.');
-                }
-                else {
-                    alert('Error subscribing. Please try again.');
-                }
-            })
-            .catch(error => {
-                alert(error.message);
-                console.error('Error:', error);
-            });
-        }
-    </script>
-    
-    <script>
-  const socket = new WebSocket("ws://localhost:35729");
-  socket.onmessage = (event) => {
-    if (event.data === "reload") location.reload();
-  };
-</script>
-
-
 </head>
 <body>
     <main class="max-width">
@@ -59,11 +23,10 @@
         <section class="nav-container">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/blog/">Blog</a></li>
             </ul>
         </section>
-
 
         <section class="social-links" style="margin-bottom: 20px;">
             <a href="https://x.com/sewell_stephens"><img src="/site-assets/icons/x.svg" width="20" height="20" alt="X" class="social-icon"></a>
@@ -71,16 +34,18 @@
             <a href="https://github.com/SewellStephens"><img src="/site-assets/icons/github.svg" width="20" height="20" alt="GitHub" class="social-icon"></a>
         </section>
 
-        
-<div id="blog-list" class="blog-posts"><ul class="blog-list">
+        <div id="blog-list" class="blog-posts">
+            <ul class="blog-list">
         <li class="blog-item">
-          <a href="/blog/axios-vs-javascript-fetch/">Axios vs Javascript fetch</a>
-          <span class="blog-date">Sun Apr 02 2023</span>
-        </li></ul></div>
+            <a href="/blog/axios-vs-javascript-fetch/">Axios vs Javascript fetch</a>
+            <span class="blog-date">Sun, Apr 02, 2023</span>
+        </li>
+            </ul>
+        </div>
 
         <footer style="margin-top: 50px; margin-bottom: 10px;">
             <p style="font-size: 12px;">Copyright &copy; 2025 Sewell Stephens</p>
         </footer>
     </main>
-
 </body>
+</html>

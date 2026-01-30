@@ -14,8 +14,15 @@ const {
 const SRC = "./src";
 const DIST = ".";
 const POSTS_PER_PAGE = 5;
+const IGNORE_DIRS = ["./anchorpenewersoft"];
+
+// Clean dist folder except ignored dirs
 
 const isDev = process.env.NODE_ENV === "development";
+
+if (IGNORE_DIRS) {
+
+}
 
 // configure nunjucks to read from src/
 nunjucks.configure(SRC, { autoescape: false });

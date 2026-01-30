@@ -1,54 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <link rel="stylesheet" href="/site-assets/style.css">
-    <title>About</title>
+    <title>About - Sewell Stephens</title>
     <link rel="icon" href="/site-assets/favicon.png" />
     <link rel="apple-touch-icon" href="/site-assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <!-- Responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        function handleSubmit(e) {
-            const email = document.getElementById('email').value;
-            console.log(email);
-            fetch('https://automations.anchorclick.com/webhook/5c904880-729e-439d-8f63-ee54b252b604', {
-                method: 'POST',
-                body: JSON.stringify({ email: email }),
-            })
-            .then(response => {
-                if (response.status === 200) {
-                    return response.json();
-                }
-                else {
-                    throw new Error('Error subscribing. Please try again.');
-                }
-            })
-            .then(data => {
-                if (data) {
-                    alert('Please check your email for a confirmation link.');
-                }
-                else {
-                    alert('Error subscribing. Please try again.');
-                }
-            })
-            .catch(error => {
-                alert(error.message);
-                console.error('Error:', error);
-            });
-        }
-    </script>
-    
-    <script>
-  const socket = new WebSocket("ws://localhost:35729");
-  socket.onmessage = (event) => {
-    if (event.data === "reload") location.reload();
-  };
-</script>
-
-
 </head>
 <body>
     <main class="max-width">
+
         <section class="profile-container">
             <img src="/site-assets/pic.webp" alt="Sewell Stephens" class="profile-pic">
             <h2>Hi, I'm Sewell Stephens</h2>
@@ -59,11 +24,10 @@
         <section class="nav-container">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/blog/">Blog</a></li>
             </ul>
         </section>
-
 
         <section class="social-links" style="margin-bottom: 20px;">
             <a href="https://x.com/sewell_stephens"><img src="/site-assets/icons/x.svg" width="20" height="20" alt="X" class="social-icon"></a>
@@ -71,17 +35,16 @@
             <a href="https://github.com/SewellStephens"><img src="/site-assets/icons/github.svg" width="20" height="20" alt="GitHub" class="social-icon"></a>
         </section>
 
-        
-<section class="backstory-container">
-            <h3>My Backstory</h3>
-            <p>Hi, my name is Sewell Stephens. I'm a software dev and business owner with experience in building products and businesses. It all started when I was a kid. I always had the dream to own my own business and build products that help people live better lives.</p>
-            <p>When I was 12 years old, I first learned how to code in HTML. But before any of that, I had many other business ideas most of which were not online businesses. I one day decided why not start an online business and not have to worry about the physical aspects of running a business, primarly expensive ones like a storefront or restaurant.</p>
-            <p>I am currently 20 years old and have been creating online sites and businesses for the past 8 years or so. I have had many ups and downs but I have learned a lot and I am still learning. I am currently working on Anchorclick, a done for you automation agency. Unlike other similar agencies, this one will use our in house AutoAnchorJS library to help with desktop automation tasks where APIs are not available or not feasible.</p>
+        <section class="backstory-container"><h1>My Backstory</h1>
+<p>Hi, my name is Sewell Stephens. I&#39;m a software developer and business owner with experience in building products and companies. I&#39;ve always had the dream of creating businesses that help people live better, and that drive started when I was young.</p>
+<p>I first learned how to code in HTML when I was 12 years old. Even before that, I had countless business ideas - most of them offline. Eventually, I realized I wanted to build online products so I wouldn&#39;t need to deal with the expensive physical side of running a business, like storefronts or restaurants.</p>
+<p>I am currently 20 years old and have been creating online sites and businesses for about eight years now. I&#39;ve had many ups and downs, but each one taught me something valuable, and I&#39;m still improving every day.</p>
+<p>I&#39;m currently working on Anchorclick, a done-for-you automation agency. Unlike other agencies, Anchorclick uses our in-house AutoAnchorJS library to handle desktop automation tasks where APIs aren&#39;t available or practical.</p>
 </section>
 
         <footer style="margin-top: 50px; margin-bottom: 10px;">
             <p style="font-size: 12px;">Copyright &copy; 2025 Sewell Stephens</p>
         </footer>
     </main>
-
 </body>
+</html>
