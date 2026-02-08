@@ -2,12 +2,6 @@
   "name": "sewellstephens.github.io",
   "version": "1.0.0",
   "description": "",
-  "main": "build.js",
-  "type": "module",
-  "scripts": {
-    "build": "node ./scripts/build-pages.js",
-    "dev": "node ./scripts/serve.js"
-  },
   "author": "",
   "license": "MIT",
   "dependencies": {
