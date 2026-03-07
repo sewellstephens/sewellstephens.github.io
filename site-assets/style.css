@@ -54,72 +54,62 @@ a {
 
 .newsletter-signup {
     background-color: white;
-    padding: 20px;
     border-radius: 10px;
-    border: 1px solid #adacac;
+    border: 1px solid #e2e2e2;
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
     max-width: 500px;
+    overflow: hidden;
 }
 
-.newsletter-signup h3 {
-    font-size: 1.25rem;
-    color: black;
-    margin-bottom: 10px;
+/* Override styles for the newsletter form */
+
+.newsletter-signup div span[style="font-size: 30px;"] {
+    font-size: 1.25rem !important;
+    color: black !important;
+    margin-bottom: 10px !important;
+    margin-top: 20px !important;
+    font-weight: 600 !important;
 }
 
-.newsletter-signup p {
-    font-size: 1rem;
-    color: black;
-    margin-bottom: 10px;
+.newsletter-signup input[type="email"] {
+   border: 1px solid #d2d1d1 !important;
+   border-radius: 5px !important;
+   transition: none !important;
 }
 
-.newsletter-signup form {
-    display: flex;
-    flex-direction: column;
+.newsletter-signup input[type="email"]::placeholder {
+    color: #adacac !important;
 }
 
-.newsletter-signup form label {
-    font-size: 1rem;
-    color: black;
-    font-weight: bold;
+.newsletter-signup input[type="email"]:focus {
+    outline: none !important;
+    border-color: #adacac !important;
+    box-shadow: 0 0 0 1px #9f1efc !important;
 }
 
-.newsletter-signup form input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #b1b0b0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 1rem;
+.newsletter-signup input[type="submit"] {
+    background-color: #9f1efc !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    outline: none !important;
 }
 
-.newsletter-signup form input:focus {
-    outline: none;
-    box-shadow: none;
-    border: 1px solid #4500a0;
-}  
-
-.newsletter-signup form button {
-    padding: 10px;
-    border-radius: 999px;
-    border: none;
-    background-color: #4500a0;
-    color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    width: 100px;
-    transition: background-color 0.3s ease;
+.newsletter-signup input[type="submit"]:hover {
+    background-color: #7a14b8 !important;
 }
 
-.newsletter-signup form button:hover {
-    background-color: #400070;
-}
+.newsletter-signup input[type="submit"]:focus {
+    background-color: #7a14b8 !important;
+    box-shadow: 0 0 0 1px #9f1efc00 !important; /* Remove the focus ring on the button */
+}   
+
+/* End of override styles for the newsletter form */
 
 .social-links {
     display: flex;
